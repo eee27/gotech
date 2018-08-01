@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eee27go.gotech.Dao.UserDao">
+    <resultMap id="BaseResultMap" type="com.eee27go.gotech.Entity.UserEntity">
+        <id column="INT_USER_ID" jdbcType="INTEGER" property="intUserId"/>
+        <result column="VCHR_USER_NAME" jdbcType="VARCHAR" property="vchrUserName"/>
+        <result column="VCHR_LOGIN_NAME" jdbcType="VARCHAR" property="vchrLoginName"/>
+        <result column="VCHR_EMAIL" jdbcType="VARCHAR" property="vchrEmail"/>
+        <result column="VCHR_PHONE" jdbcType="VARCHAR" property="vchrPhone"/>
+        <result column="VCHR_PASSWORD" jdbcType="VARCHAR" property="vchrPassword"/>
+        <result column="INT_ROLE_LEVEL" jdbcType="INTEGER" property="intRoleLevel"/>
+        <result column="INT_STATUS" jdbcType="INTEGER" property="intStatus"/>
+        <result column="DTME_REG_TIME" jdbcType="TIMESTAMP" property="dtmeRegTime"/>
+        <result column="VCHR_REG_IP" jdbcType="VARCHAR" property="vchrRegIp"/>
+        <result column="DTME_LAST_LOGIN_TIME" jdbcType="TIMESTAMP" property="dtmeLastLoginTime"/>
+        <result column="VCHR_LAST_LOGIN_IP" jdbcType="VARCHAR" property="vchrLastLoginIp"/>
+        <result column="IS_DEL" jdbcType="INTEGER" property="isDel"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        INT_USER_ID, VCHR_USER_NAME, VCHR_LOGIN_NAME, VCHR_EMAIL, VCHR_PHONE, VCHR_PASSWORD,
+        INT_ROLE_LEVEL, INT_STATUS, DTME_REG_TIME, VCHR_REG_IP, DTME_LAST_LOGIN_TIME, VCHR_LAST_LOGIN_IP,
+        IS_DEL
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user_info
+        where INT_USER_ID = #{intUserId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from user_info
+        where INT_USER_ID = #{intUserId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.eee27go.gotech.Entity.UserEntity">
+        insert into user_info (INT_USER_ID, VCHR_USER_NAME, VCHR_LOGIN_NAME,
+        VCHR_EMAIL, VCHR_PHONE, VCHR_PASSWORD,
+        INT_ROLE_LEVEL, INT_STATUS, DTME_REG_TIME,
+        VCHR_REG_IP, DTME_LAST_LOGIN_TIME, VCHR_LAST_LOGIN_IP,
+        IS_DEL)
+        values (#{intUserId,jdbcType=INTEGER}, #{vchrUserName,jdbcType=VARCHAR}, #{vchrLoginName,jdbcType=VARCHAR},
+        #{vchrEmail,jdbcType=VARCHAR}, #{vchrPhone,jdbcType=VARCHAR}, #{vchrPassword,jdbcType=VARCHAR},
+        #{intRoleLevel,jdbcType=INTEGER}, #{intStatus,jdbcType=INTEGER}, #{dtmeRegTime,jdbcType=TIMESTAMP},
+        #{vchrRegIp,jdbcType=VARCHAR}, #{dtmeLastLoginTime,jdbcType=TIMESTAMP}, #{vchrLastLoginIp,jdbcType=VARCHAR},
+        #{isDel,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="com.eee27go.gotech.Entity.UserEntity">
+        insert into user_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="intUserId != null">
+                INT_USER_ID,
+            </if>
+            <if test="vchrUserName != null">
+                VCHR_USER_NAME,
+            </if>
+            <if test="vchrLoginName != null">
+                VCHR_LOGIN_NAME,
+            </if>
+            <if test="vchrEmail != null">
+                VCHR_EMAIL,
+            </if>
+            <if test="vchrPhone != null">
+                VCHR_PHONE,
+            </if>
+            <if test="vchrPassword != null">
+                VCHR_PASSWORD,
+            </if>
+            <if test="intRoleLevel != null">
+                INT_ROLE_LEVEL,
+            </if>
+            <if test="intStatus != null">
+                INT_STATUS,
+            </if>
+            <if test="dtmeRegTime != null">
+                DTME_REG_TIME,
+            </if>
+            <if test="vchrRegIp != null">
+                VCHR_REG_IP,
+            </if>
+            <if test="dtmeLastLoginTime != null">
+                DTME_LAST_LOGIN_TIME,
+            </if>
+            <if test="vchrLastLoginIp != null">
+                VCHR_LAST_LOGIN_IP,
+            </if>
+            <if test="isDel != null">
+                IS_DEL,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="intUserId != null">
+                #{intUserId,jdbcType=INTEGER},
+            </if>
+            <if test="vchrUserName != null">
+                #{vchrUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="vchrLoginName != null">
+                #{vchrLoginName,jdbcType=VARCHAR},
+            </if>
+            <if test="vchrEmail != null">
+                #{vchrEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="vchrPhone != null">
+                #{vchrPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="vchrPassword != null">
+                #{vchrPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="intRoleLevel != null">
+                #{intRoleLevel,jdbcType=INTEGER},
+            </if>
+            <if test="intStatus != null">
+                #{intStatus,jdbcType=INTEGER},
+            </if>
+            <if test="dtmeRegTime != null">
+                #{dtmeRegTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="vchrRegIp != null">
+                #{vchrRegIp,jdbcType=VARCHAR},
+            </if>
+            <if test="dtmeLastLoginTime != null">
+                #{dtmeLastLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="vchrLastLoginIp != null">
+                #{vchrLastLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.eee27go.gotech.Entity.UserEntity">
+        update user_info
+        <set>
+            <if test="vchrUserName != null">
+                VCHR_USER_NAME = #{vchrUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="vchrLoginName != null">
+                VCHR_LOGIN_NAME = #{vchrLoginName,jdbcType=VARCHAR},
+            </if>
+            <if test="vchrEmail != null">
+                VCHR_EMAIL = #{vchrEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="vchrPhone != null">
+                VCHR_PHONE = #{vchrPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="vchrPassword != null">
+                VCHR_PASSWORD = #{vchrPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="intRoleLevel != null">
+                INT_ROLE_LEVEL = #{intRoleLevel,jdbcType=INTEGER},
+            </if>
+            <if test="intStatus != null">
+                INT_STATUS = #{intStatus,jdbcType=INTEGER},
+            </if>
+            <if test="dtmeRegTime != null">
+                DTME_REG_TIME = #{dtmeRegTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="vchrRegIp != null">
+                VCHR_REG_IP = #{vchrRegIp,jdbcType=VARCHAR},
+            </if>
+            <if test="dtmeLastLoginTime != null">
+                DTME_LAST_LOGIN_TIME = #{dtmeLastLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="vchrLastLoginIp != null">
+                VCHR_LAST_LOGIN_IP = #{vchrLastLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="isDel != null">
+                IS_DEL = #{isDel,jdbcType=INTEGER},
+            </if>
+        </set>
+        where INT_USER_ID = #{intUserId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.eee27go.gotech.Entity.UserEntity">
+        update user_info
+        set VCHR_USER_NAME = #{vchrUserName,jdbcType=VARCHAR},
+        VCHR_LOGIN_NAME = #{vchrLoginName,jdbcType=VARCHAR},
+        VCHR_EMAIL = #{vchrEmail,jdbcType=VARCHAR},
+        VCHR_PHONE = #{vchrPhone,jdbcType=VARCHAR},
+        VCHR_PASSWORD = #{vchrPassword,jdbcType=VARCHAR},
+        INT_ROLE_LEVEL = #{intRoleLevel,jdbcType=INTEGER},
+        INT_STATUS = #{intStatus,jdbcType=INTEGER},
+        DTME_REG_TIME = #{dtmeRegTime,jdbcType=TIMESTAMP},
+        VCHR_REG_IP = #{vchrRegIp,jdbcType=VARCHAR},
+        DTME_LAST_LOGIN_TIME = #{dtmeLastLoginTime,jdbcType=TIMESTAMP},
+        VCHR_LAST_LOGIN_IP = #{vchrLastLoginIp,jdbcType=VARCHAR},
+        IS_DEL = #{isDel,jdbcType=INTEGER}
+        where INT_USER_ID = #{intUserId,jdbcType=INTEGER}
+    </update>
+</mapper>
