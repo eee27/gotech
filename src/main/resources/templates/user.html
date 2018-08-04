@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/Element.css">
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+
+
+<body>
+
+<div id="app">
+    <el-table
+            :data="users"
+            stripe
+            border
+            style="width: 100%">
+        <el-table-column
+                type="selection"
+                width="55">
+        <el-table-column
+                prop="intUserId"
+                label="ID"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="vchrUserName"
+                label="用户名"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="vchrLoginName"
+                label="登录名"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="vchrEmail"
+                label="邮箱"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="vchrPhone"
+                label="手机"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="dtmeRegTime"
+                label="注册时间"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="vchrRegIp"
+                label="注册IP"
+                width="180">
+        </el-table-column>
+    </el-table>
+</div>
+</body>
+
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="/js/Element.js"></script>
+
+<script>
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            users: []
+        },
+        created() {
+            fetch('http://localhost:27270/user.ajax')
+                .then(response => response.json()
+                )
+                .then(json => {
+                    this.users = json.users
+                })
+        }
+
+
+    })
+
+
+</script>
+</html>

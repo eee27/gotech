@@ -7,11 +7,16 @@
 
 
 <body>
-<div id="app">
-    {{ message }}
-</div>
 <div id="test">
-    <a href="/user">Lets See User!</a>
+    <a href="/user.ajax">Lets See User!</a>
+</div>
+
+<div id="app">
+    <ul>
+        <li v-for="user in users">
+            {{user.vchrUserName}}
+        </li>
+    </ul>
 </div>
 </body>
 

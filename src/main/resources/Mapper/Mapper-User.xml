@@ -21,11 +21,18 @@
         INT_ROLE_LEVEL, INT_STATUS, DTME_REG_TIME, VCHR_REG_IP, DTME_LAST_LOGIN_TIME, VCHR_LAST_LOGIN_IP,
         IS_DEL
     </sql>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user_info
+        where IS_DEL=0
+    </select>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from user_info
         where INT_USER_ID = #{intUserId,jdbcType=INTEGER}
+        AND IS_DEL=0
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete from user_info

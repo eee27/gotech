@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,34 +22,36 @@ import java.util.Map;
  * Date: 2018/6/25 21:31
  */
 
-@RestController
+@Controller
 public class IndexController {
     private final static Logger logger = LoggerFactory.getLogger(IndexController.class);
-
+    
     @Autowired
     private UserDao userDao;
-
-    @RequestMapping("/index")
-    public ModelAndView hello(HttpServletRequest request) {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("index.html");
+    
+    @RequestMapping("/index.do")
+    public String index() {
         logger.info("WHAT THE FUCK!");
-
-
-        return mv;
+        
+        return "/index";
     }
-
-
-    @RequestMapping("/user")
+    
+    @RequestMapping("/user.do")
+    public String user() {
+        
+        return "/user";
+    }
+    
+    
+    @RequestMapping("/user.ajax")
     @ResponseBody
-    public Map user(HttpServletRequest request) {
+    public Map users() {
         HashMap map = new HashMap();
-
-        UserEntity userEntity = userDao.selectByPrimaryKey(1);
-        map.put("result", userEntity);
-
-
+        
+        List<UserEntity> users = userDao.selectAll();
+        map.put("users", users);
+        
         return map;
     }
-
+    
 }
