@@ -11,11 +11,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@ComponentScan
 @EnableAutoConfiguration
 @EnableScheduling
 @Configuration
 @MapperScan("com.eee27go.gotech.Dao")
+@ComponentScan(basePackages={"com.eee27go.gotech"})
 public class GotechApplication {
 	private final static Logger logger= LoggerFactory.getLogger(GotechApplication.class);
 

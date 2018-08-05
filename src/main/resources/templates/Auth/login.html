@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/Element.css">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+
+<body>
+
+
+    <el-aside width="200px">Aside</el-aside>
+    <el-main>
+        <el-form ref="form" label-position="top" :model="form" label-width="80px" id="form">
+            <el-form-item label="手机">
+                <el-input v-model="form.emailAndPhone"></el-input>
+            </el-form-item>
+            <el-form-item label="密码">
+                <el-input v-model="form.password"></el-input>
+            </el-form-item>
+
+
+            <el-form-item>
+                <el-button type="primary" @click="onSubmit">登录</el-button>
+                <el-button>取消</el-button>
+            </el-form-item>
+        </el-form>
+    </el-main>
+
+
+</body>
+
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/js/Element.js"></script>
+<script>
+    const app = new Vue({
+        el: '#form',
+        data() {
+            return {
+                form: {
+                    emailAndPhone: '',
+                    password: '',
+                }
+            }
+        },
+        methods: {
+            onSubmit() {
+                alert("submit!");
+            }
+        }
+
+    })
+
+</script>
+</html>

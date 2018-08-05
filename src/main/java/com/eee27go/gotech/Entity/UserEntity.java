@@ -7,134 +7,134 @@ import java.util.Date;
  * Date: 2018/8/1 21:50
  */
 public class UserEntity {
-    private Integer intUserId;
+    private Integer userId;
 
-    private String vchrUserName;
+    private String userName;
 
-    private String vchrLoginName;
+    private String loginName;
 
-    private String vchrEmail;
+    private String email;
 
-    private String vchrPhone;
+    private String phone;
 
-    private String vchrPassword;
+    private String password;
 
-    private Integer intRoleLevel;
+    private Integer roleLevel;
 
-    private Integer intStatus;
+    private Integer status;
 
-    private Date dtmeRegTime;
+    private Date regTime;
 
-    private String vchrRegIp;
+    private String regIp;
 
-    private Date dtmeLastLoginTime;
+    private Date lastLoginTime;
 
-    private String vchrLastLoginIp;
+    private String lastLoginIp;
 
-    private Integer isDel;
-
-    public Integer getIntUserId() {
-        return intUserId;
+    private Integer del;
+    
+    
+    public Integer getUserId() {
+        return userId;
     }
-
-    public void setIntUserId(Integer intUserId) {
-        this.intUserId = intUserId;
+    
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
-
-    public String getVchrUserName() {
-        return vchrUserName;
+    
+    public String getUserName() {
+        return userName;
     }
-
-    public void setVchrUserName(String vchrUserName) {
-        this.vchrUserName = vchrUserName == null ? null : vchrUserName.trim();
+    
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-
-    public String getVchrLoginName() {
-        return vchrLoginName;
+    
+    public String getLoginName() {
+        return loginName;
     }
-
-    public void setVchrLoginName(String vchrLoginName) {
-        this.vchrLoginName = vchrLoginName == null ? null : vchrLoginName.trim();
+    
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
     }
-
-    public String getVchrEmail() {
-        return vchrEmail;
+    
+    public String getEmail() {
+        return email;
     }
-
-    public void setVchrEmail(String vchrEmail) {
-        this.vchrEmail = vchrEmail == null ? null : vchrEmail.trim();
+    
+    public void setEmail(String email) {
+        this.email = email;
     }
-
-    public String getVchrPhone() {
-        return vchrPhone;
+    
+    public String getPhone() {
+        return phone;
     }
-
-    public void setVchrPhone(String vchrPhone) {
-        this.vchrPhone = vchrPhone == null ? null : vchrPhone.trim();
+    
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
-
-    public String getVchrPassword() {
-        return vchrPassword;
+    
+    public String getPassword() {
+        return password;
     }
-
-    public void setVchrPassword(String vchrPassword) {
-        this.vchrPassword = vchrPassword == null ? null : vchrPassword.trim();
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-    public Integer getIntRoleLevel() {
-        return intRoleLevel;
+    
+    public Integer getRoleLevel() {
+        return roleLevel;
     }
-
-    public void setIntRoleLevel(Integer intRoleLevel) {
-        this.intRoleLevel = intRoleLevel;
+    
+    public void setRoleLevel(Integer roleLevel) {
+        this.roleLevel = roleLevel;
     }
-
-    public Integer getIntStatus() {
-        return intStatus;
+    
+    public Integer getStatus() {
+        return status;
     }
-
-    public void setIntStatus(Integer intStatus) {
-        this.intStatus = intStatus;
+    
+    public void setStatus(Integer status) {
+        this.status = status;
     }
-
-    public Date getDtmeRegTime() {
-        return dtmeRegTime;
+    
+    public Date getRegTime() {
+        return regTime;
     }
-
-    public void setDtmeRegTime(Date dtmeRegTime) {
-        this.dtmeRegTime = dtmeRegTime;
+    
+    public void setRegTime(Date regTime) {
+        this.regTime = regTime;
     }
-
-    public String getVchrRegIp() {
-        return vchrRegIp;
+    
+    public String getRegIp() {
+        return regIp;
     }
-
-    public void setVchrRegIp(String vchrRegIp) {
-        this.vchrRegIp = vchrRegIp == null ? null : vchrRegIp.trim();
+    
+    public void setRegIp(String regIp) {
+        this.regIp = regIp;
     }
-
-    public Date getDtmeLastLoginTime() {
-        return dtmeLastLoginTime;
+    
+    public Date getLastLoginTime() {
+        return lastLoginTime;
     }
-
-    public void setDtmeLastLoginTime(Date dtmeLastLoginTime) {
-        this.dtmeLastLoginTime = dtmeLastLoginTime;
+    
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
     }
-
-    public String getVchrLastLoginIp() {
-        return vchrLastLoginIp;
+    
+    public String getLastLoginIp() {
+        return lastLoginIp;
     }
-
-    public void setVchrLastLoginIp(String vchrLastLoginIp) {
-        this.vchrLastLoginIp = vchrLastLoginIp == null ? null : vchrLastLoginIp.trim();
+    
+    public void setLastLoginIp(String lastLoginIp) {
+        this.lastLoginIp = lastLoginIp;
     }
-
-    public Integer getIsDel() {
-        return isDel;
+    
+    public Integer getDel() {
+        return del;
     }
-
-    public void setIsDel(Integer isDel) {
-        this.isDel = isDel;
+    
+    public void setDel(Integer del) {
+        this.del = del;
     }
-
 }

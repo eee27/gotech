@@ -10,15 +10,17 @@ import java.util.List;
  */
 public interface UserDao {
 
-    int deleteByPrimaryKey(Integer intUserId);
+    int deleteByPrimaryKey(Integer userId);
 
     int insert(UserEntity record);
 
     int insertSelective(UserEntity record);
 
-    UserEntity selectByPrimaryKey(Integer intUserId);
+    UserEntity selectByPrimaryKey(Integer userId);
     
     List<UserEntity> selectAll();
+    
+    int selectCount();
 
     int updateByPrimaryKeySelective(UserEntity record);
 
