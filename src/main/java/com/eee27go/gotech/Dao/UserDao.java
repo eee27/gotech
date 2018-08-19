@@ -20,7 +20,7 @@ public interface UserDao {
     
     List<UserEntity> selectAll();
     
-    int selectCount();
+    int selectCount(UserEntity record);
 
     int updateByPrimaryKeySelective(UserEntity record);
 

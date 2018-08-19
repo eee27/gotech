@@ -29,7 +29,7 @@ public class RegController {
     public String reg(HttpServletRequest request) {
         logger.info("Go Reg Page");
         
-        request.setAttribute("count", userDao.selectCount());
+        request.setAttribute("count", userDao.selectCount(new UserEntity()));
         
         return "/Auth/reg";
     }

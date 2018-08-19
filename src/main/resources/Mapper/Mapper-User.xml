@@ -34,11 +34,20 @@
         where DEL=0
     </select>
 
-    <select id="selectCount" resultType="java.lang.Integer">
+    <select id="selectCount" parameterType="com.eee27go.gotech.Entity.UserEntity" resultType="java.lang.Integer">
         select
         count(*)
         from user_info
         where DEL=0
+        <if test="phone!=null and phone!=''">
+            AND PHONE=#{phone}
+        </if>
+        <if test="email!=null and email!=''">
+            AND EMAIL=#{email}
+        </if>
+        <if test="password!=null and password!=''">
+            AND PASSWORD=#{password}
+        </if>
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
